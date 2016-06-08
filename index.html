@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Employee Database</title>
+	<title>Train Database</title>
 
-<!-- Add CSS and CSS Reset -->
+  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 
-<!-- 	<link rel="stylesheet" type="text/css" href="style.css"> -->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
 	<script src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
 	<!-- Firebase Reference -->
@@ -21,10 +21,12 @@
 
 <div class="container">
   <div class="jumbotron">
-    <h1>Anytime is Train Time</h1> 
-    <p>choooooo chooooooo!</p> 
+    <h1>Train Time</h1> 
+    <p>chooo chooooooo!</p> 
   </div>
 	
+	<div class="row">
+	<div class="col-md-12">
 	<div class="panel panel-primary">
   	<div class="panel-heading">Current Train Schedule</div>
 	    
@@ -44,9 +46,18 @@
 	    </tbody>
 	  </table> <br>
 	</div>
+	</div>
+	</div>
+
+	<div class="row">
+	<div class="col-md-6">
 
 	<div class="panel panel-primary">
-  	<div class="panel-heading">Add A Train</div>
+  	<div class="panel-heading">
+  	<h3 class="panel-title"><strong>Add A Train</strong></h3>
+		</div>
+
+		<div class="panel-body">
 
 		<form>
 		  <div class="form-group">
@@ -73,7 +84,9 @@
 		  <button type="submit" class="btn btn-primary" id="addATrain">Submit</button>
 		</form>
 	</div>
-
+	</div>
+	</div>
+	</div>
 
 </div>
 
