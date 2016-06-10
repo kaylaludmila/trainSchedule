@@ -60,26 +60,37 @@ trainData.on("child_added", function(childSnapshot, prevChildKey){
 	console.log(trainFreq);
 
 
+//Train Time Equations
 
-////NEXT ARRIVE && MIN AWAY APP
- // moment($("#firstTimeInput").val().trim(), "HH:mm").format("X");
+	// First Time (pushed back 1 year to make sure it comes before current time)
+	var firstTimeConverted = moment(trainStartTime,"hh:mm").subtract(1, "years");
+	console.log(firstTimeConverted);
 
-	// // Prettify the employee start
-	// var empStartPretty = moment.unix(empStart).format("MM/DD/YY");
-	
-	// // To calculate
-	// var empMonths = moment().diff(moment.unix(empStart, 'X'), "months");
-	// console.log(empMonths);
+	// Current Time
+	var currentTime = moment();
+	console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
 
-	// // Calculate the total billed rate
-	// var empBilled = empMonths * empRate;
-	// console.log(empBilled);
+	// Difference between the times
+	var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+	console.log("DIFFERENCE IN TIME: " + diffTime);
+
+	// Time apart (remainder)
+	var tRemainder = diffTime % trainFreq;
+	console.log(tRemainder);
+
+	// Minute Until Train
+	var tMinutesTillTrain = trainFreq - tRemainder;
+	console.log("MINUTES TILL TRAIN: " + tMinutesTillTrain);
+
+	// Next Train
+	var nextTrain = moment().add(tMinutesTillTrain, "minutes")
+	console.log("ARRIVAL TIME: " + moment(nextTrain).format("hh:mm"))
 
 
 
 	// Add each train's data into the table
 
-	// $("#trainTable > tbody").append("<tr><td>" + trainName + "</td><td>" + trainDest + "</td><td>" + trainFreq + "</td><td>" + nextArrive + "</td><td>" + minAway + "</td><td>");
+	$("#trainTable > tbody").append("<tr><td>" + trainName + "</td><td>" + trainDest + "</td><td>" + trainFreq + "</td><td>" + nextTrain.format("HH:mm") + "</td><td>" + tMinutesTillTrain + "</td><td>");
 
 });
 
